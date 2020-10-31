@@ -1,0 +1,12 @@
+{% extends 'main/index.html' %}
+
+{% block title %}Mysite | {{ post.title }}{% endblock %}
+
+{% block main-content %}
+
+<h1>{{ post.title }}</h1>
+<p>{{ post.content|safe }}</p>
+<p>{{ post.posted_date|date:"F d Y" }}</p>
+              
+
+{% endblock %}
