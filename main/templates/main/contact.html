@@ -1,13 +1,15 @@
 {% extends 'main/index.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}Mysite |Contact{% endblock %}
 
 {% block main-content %}
-
+<div class="container text-center mt-5 mb-5">
    <form method="POST">
        {% csrf_token %}
-       {{ form }}
-       <button type="submit">Submit</button>
-   </form>           
+       {{ form|crispy }}
+       <button type="submit" class="btn btn-success mt-3">Submit</button>
+   </form> 
+</div>          
 
 {% endblock %}

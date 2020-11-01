@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'ckeditor',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL= '/media/'
 
  # CKEditor Configurations
 
@@ -176,5 +176,7 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap'
 
 
