@@ -3,6 +3,10 @@ from django.core.paginator import Paginator
 
 from main.models import Post
 from main.forms import Contactform
+from django.core.mail import EmailMessage
+from django.conf import settings as conf_settings
+from django.contrib import messages
+
 
 
 # Create your views here.
@@ -27,7 +31,23 @@ def post(request, post_id=None):
 def contact(request):
     form =Contactform(request.POST or None)
     if form.is_valid():
+        instance = form.save(commit=False)
+
+        name = instance.name
+        email = instance.email
+        message = instance.message
+
+        EmailMessage(
+            'New message from %s' %name,
+            'Hi admin, new message form this email address: %s\n\n Message: %s' %(email, message),
+            conf_settings.EMAIL_HOST_USER,
+            ['anandoyashi@gmail.com', ],
+        ).send()
+
         form.save()
+        messages.success(request, 'Your message has been sent!')
+
+
 
         return redirect('contact')
     context={'form':form}
