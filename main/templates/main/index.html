@@ -1,4 +1,5 @@
 {% extends 'main/base.html' %}
+{% load static%}
 
 {% block title %}Mysite | Home{% endblock %}
 
@@ -25,7 +26,17 @@
   
 
 {% block main-content %}
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-3">
+      <img src="{% static 'main/images/1604505792912285_50.jpg' %}" alt="My pic" class="image-fluid" width="240px">
+    </div>
+      <div class="col-10">
+        <h1>Rohit Verma</h1>
+        <p>As policymakers grapple with how to address hate speech and disinformation on the internet, they’re eying the legal structure underpinning collaborative software development: legal safe harbors. These safe harbors protect online platforms from liability for the user content that they host, and without these safe harbors, countless user-generated content platforms like GitHub wouldn’t be here today.</p>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 
