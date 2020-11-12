@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.core.paginator import Paginator
 
-from main.models import Post
+from main.models import Post,Certificate,Project
 from main.forms import Contactform
 from django.core.mail import EmailMessage
 from django.conf import settings as conf_settings
@@ -11,7 +11,10 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-   return render(request, 'main/index.html')    
+    project=Project.objects.all()
+    certificte=Certificate.objects.all()
+    context={ 'project':project, 'certificate':certificte}
+    return render(request, 'main/index.html',context)    
 
 def blog(request):
     posts = Post.objects.all().order_by('-posted_date')

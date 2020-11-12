@@ -11,3 +11,23 @@ class Contact(models.Model):
     name=models.CharField(max_length=100)
     email=models.EmailField()
     message=models.TextField()
+
+class WorkExperience(models.Model):
+    title=models.CharField(max_length=300)
+    workplace=models.CharField(max_length=200)
+    discription=models.TextField()
+    starting_date=models.DateField()
+    ending_date=models.DateField() 
+
+class Certificate(models.Model):
+    title=models.CharField(max_length=250)
+    discription=models.TextField()
+    issue_date=models.DateField()
+    url=models.URLField(blank=True)
+
+class Project(models.Model):
+    title=models.CharField(max_length=250)
+    discription=models.CharField(max_length=300)
+    starting_date=models.DateField()
+    ending_date=models.DateField()
+    url=models.URLField(blank=True)

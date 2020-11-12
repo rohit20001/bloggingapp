@@ -37,6 +37,30 @@
     </div>
   </div>
 </div>
+<div class="container mt-5 mb-5">
+<h1 class="text-center">Certificates</h1>
+{% for cert in certificate%}
+<div>
+  <h2>{{ cert.title}}</h2>
+  <p><small>Url: <a href="{{ cert.url}}">{{ cert.url}}</a></small></p>
+  <p><small>{{ cert.discription}}</small></p>
+  <p><small>Issue date: {{ cert.issue_date}}</small></p>
+  {% endfor %}
+
+</div>
+</div>
+<div class="container mt-5 mb-5">
+<h1 class="text-center">Projects</h1>
+{% for pr in project%}
+<div>
+  <h2>{{ pr.title}}</h2>
+  <p><small>Url: <a href="{{ pr.url}}">{{ pr.url}}</a></small></p>
+  <p><small>{{ pr.discription}}</small></p>
+  <p><small>Starting date: {{ pr.starting_date}} | Ending date: {{pr.ending_date}}</small></p>
+  {% endfor %}
+
+</div>
+</div>
 {% endblock %}
 
 
